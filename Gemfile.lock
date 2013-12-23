@@ -22,12 +22,15 @@ GEM
       rack (~> 1.0)
       tilt (~> 1.1, != 1.3.0)
     tilt (1.3.3)
+    xml-simple (1.1.2)
 
 PLATFORMS
   ruby
+  x86-mingw32
 
 DEPENDENCIES
   coffee-script
   sass
   sinatra
   sprockets
+  xml-simple

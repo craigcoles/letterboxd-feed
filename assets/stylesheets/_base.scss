@@ -1,28 +1,39 @@
-// Base
-// Base styles for HTML elements. No class's or IDs should be used here.
+// ----- HTML
 
-// Body
-// ------------------------------------------------------------
+html {
+  -webkit-font-smoothing: antialiased;
+}
+
+// ----- Body
 
 body {
   background-color: $light;
   color: $dark;
 }
 
-// Paragraphs
-// ------------------------------------------------------------
+::selection {
+  background: $light;
+  color: $brand-orange;
+}
 
-// Links
-// ------------------------------------------------------------
+::-moz-selection {
+  background: $light;
+  color: $brand-orange;
+}
+
+// ----- Paragraphs
+
+// ----- Links
 
 a {
   text-decoration: none;
-  &:link, &:visited, &:active  {color: $link;}
-  &:hover { color: $link-hover;}
+  &:link, &:visited, &:active  {color: $brand-orange; font-weight:bold;}
+  // &:hover { color: $brand-orange-hover;}
   &:active, &:hover {outline: none;}
 }
+
 a img {border: none;}
 
-// Table
-// ------------------------------------------------------------
+// ----- Table
+
 table { border-collapse: collapse; }
