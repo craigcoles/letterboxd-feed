@@ -1,8 +1,8 @@
 require 'bundler'
 Bundler.setup :default
 require 'sinatra'
-require 'open-uri'
 require 'xmlsimple'
+require 'net/http'
 
 helpers do
   # If @title is assigned, add it to the page's title.
@@ -19,6 +19,6 @@ end
 get '/' do
   http = Net::HTTP.new('letterboxd.com')
   response = http.request(Net::HTTP::Get.new("/craigcoles/rss/"))
-  response_status = XmlSimple.xml_in(response.body, { 'ForceArray' => false })
+  @response_status = XmlSimple.xml_in(response.body, { 'ForceArray' => false })
   erb :"pages/home"
 end
