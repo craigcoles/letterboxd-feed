@@ -1,7 +1,3 @@
-require 'bundler'
-Bundler.setup :default
-require 'sinatra/base'
-require 'sprockets'
 require './app'
 
 map '/assets' do

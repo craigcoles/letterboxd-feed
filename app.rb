@@ -1,6 +1,7 @@
 require 'bundler'
 Bundler.setup :default
 require 'sinatra'
+require 'sprockets'
 require 'xmlsimple'
 require 'net/http'
 
