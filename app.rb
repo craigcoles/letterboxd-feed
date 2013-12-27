@@ -19,6 +19,6 @@ end
 get '/' do
   http = Net::HTTP.new('letterboxd.com')
   response = http.request(Net::HTTP::Get.new("/craigcoles/rss/"))
-  response_status = XmlSimple.xml_in(response.body, { 'ForceArray' => false })
+  @response_status = XmlSimple.xml_in(response.body, { 'ForceArray' => false })
   erb :"pages/home"
 end
