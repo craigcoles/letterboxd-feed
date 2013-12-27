@@ -1,11 +1,3 @@
-<% 
-
-  @title = "Test" 
-
-  http = Net::HTTP.new('letterboxd.com')
-  response = http.request(Net::HTTP::Get.new("/craigcoles/rss/"))
-  response_status = XmlSimple.xml_in(response.body, { 'ForceArray' => false })
-
-%>
+<% @title = "Test" %>
 
 <%= debug(response_status) %>
