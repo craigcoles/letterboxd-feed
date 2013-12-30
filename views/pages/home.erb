@@ -3,10 +3,8 @@
 <% @response_status['channel']['item'].each do |movie| %>
   <% if movie['guid']['content'].match(/letterboxd-watch/) %>
 
-    <%
-      description = Nokogiri::HTML( movie['description'] )
-      poster_src = description.css('img').map{ |i| i['src'] } 
-    %>
+    <% description = Nokogiri::HTML( movie['description'] ) %>
+    <% poster_src = description.css('img').map{ |i| i['src'] } %>
 
     <p class="<%= movie['guid']['content'] %>">
       <span><a href="<%= movie['link'] %>"><%= movie['title'].match(/.*(,)/)[0].chomp(',') %></a>, <%= movie['title'].match(/([^,]*)$/)[1].split(/-/)[0] %></span><br/>
