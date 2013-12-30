@@ -1,24 +1,17 @@
 <% @title = "Test" %>
 
-<pre>
-  <%#= @response_status %>
-</pre>
-
 <% @response_status['channel']['item'].each do |movie| %>
   <% if movie['guid']['content'].match(/letterboxd-watch/) %>
 
-    <% movie_title = movie['title'].split(',', 2).first %>
-    <% movie_year = movie['title'].split('-', 2).first.split(',', 2).last %>
-
     <%
       description = Nokogiri::HTML( movie['description'] )
-      poster = description.css('img').map{ |i| i['src'].to_s } 
+      poster_src = description.css('img').map{ |i| i['src'] } 
     %>
 
     <p class="<%= movie['guid']['content'] %>">
-      <span><%= movie_title %></span><br/>
-      <span><%= movie_year %></span><br/>
-      <span><%= poster %></span>
+      <span><a href="<%= movie['link'] %>"><%= movie['title'].match(/.*(,)/)[0].chomp(',') %></a>, <%= movie['title'].match(/([^,]*)$/)[1].split(/-/)[0] %></span><br/>
+      <span><%= Date.strptime(movie['pubDate'], '%a, %e %b %Y %H:%M:%S %z').strftime("%A %e %b %Y") %></span><br/>
+      <span><img src="<%= poster_src.first %>" alt="<%= movie['title'].match(/.*(,)/)[0].chomp(',') %>, <%= movie['title'].match(/([^,]*)$/)[1].split(/-/)[0] %>"></span>
     </p>
 
   <% end %>
