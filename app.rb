@@ -1,10 +1,13 @@
 require 'bundler'
 Bundler.setup :default
 require 'sinatra'
+require 'nokogiri'
 require 'xmlsimple'
 require 'net/http'
 
+
 helpers do
+
   # If @title is assigned, add it to the page's title.
   def title
     if @title
@@ -13,6 +16,7 @@ helpers do
       "No title"
     end
   end
+
 end
 
 # Set up Homepage
