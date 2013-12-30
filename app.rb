@@ -2,6 +2,7 @@ require 'bundler'
 Bundler.setup :default
 require 'sinatra'
 require 'nokogiri'
+require 'sprockets'
 require 'xmlsimple'
 require 'net/http'
 
