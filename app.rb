@@ -27,3 +27,7 @@ get '/' do
   @response_status = XmlSimple.xml_in(response.body, { 'ForceArray' => false })
   erb :"pages/home"
 end
+
+not_found do  
+  halt 404, 'page not found'  
+end
